@@ -1,4 +1,4 @@
-package main
+package code
 
 import (
 	"github.com/cheolgyu/stock-write-common/logging"
@@ -7,11 +7,11 @@ import (
 )
 
 /*
-칼럼 upper_code 으로 meta.config 조회
+meta.code 조회
 */
-func GetConfigListByUpperCode(conn *sqlx.DB, upper_code string) ([]model.Config, error) {
-	var res []model.Config
-	rows, err := conn.Query("select id, upper_code, upper_name, code, name from meta.config where upper_code =$1   order by id  ", upper_code)
+func GetCodeList(conn *sqlx.DB) ([]model.Code, error) {
+	var res []model.Code
+	rows, err := conn.Query("select id, code, code_type from meta.code   order by id  ")
 	if err != nil {
 		logging.Log.Fatalln(err)
 		panic(err)
@@ -19,8 +19,8 @@ func GetConfigListByUpperCode(conn *sqlx.DB, upper_code string) ([]model.Config,
 	defer rows.Close()
 
 	for rows.Next() {
-		c := model.Config{}
-		if err := rows.Scan(&c.Id, &c.Upper_code, &c.Upper_name, &c.Code, &c.Name); err != nil {
+		c := model.Code{}
+		if err := rows.Scan(&c.Id, &c.Code, &c.Code_type); err != nil {
 			logging.Log.Fatal(err)
 			panic(err)
 		}
