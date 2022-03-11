@@ -1,8 +1,8 @@
 package config
 
 import (
-	"github.com/cheolgyu/stock-write-common/logging"
-	"github.com/cheolgyu/stock-write-model/model"
+	"github.com/cheolgyu/sbm-base/logging"
+	"github.com/cheolgyu/sbm-struct/model"
 	"github.com/jmoiron/sqlx"
 )
 
