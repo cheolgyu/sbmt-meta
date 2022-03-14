@@ -1,8 +1,8 @@
 package config
 
 import (
-	"github.com/cheolgyu/sbm-base/logging"
-	"github.com/cheolgyu/sbm-struct/model"
+	"github.com/cheolgyu/base/logging"
+	"github.com/cheolgyu/model"
 	"github.com/jmoiron/sqlx"
 )
 
