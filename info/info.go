@@ -5,7 +5,8 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-const NAME_UPDATE_BOUND = "update_bound"
+const NAME_UPDATE_GRAPH_BOUND = "update_graph_bound"
+const NAME_UPDATE_STAT_PRICE = "update_stat_price"
 
 func UpdateNow(conn *sqlx.DB, name string) error {
 	query := `INSERT INTO public.info( name, updated) VALUES ('`
